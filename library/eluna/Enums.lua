@@ -604,10 +604,132 @@ local EnchantmentSlot = {
 
 ---@enum WeatherType
 local WeatherType = {
-    WEATHER_TYPE_FINE       = 0,
-    WEATHER_TYPE_RAIN       = 1,
-    WEATHER_TYPE_SNOW       = 2,
-    WEATHER_TYPE_STORM      = 3,
-    WEATHER_TYPE_THUNDERS   = 86,
-    WEATHER_TYPE_BLACKRAIN  = 90
+    WEATHER_TYPE_FINE      = 0,
+    WEATHER_TYPE_RAIN      = 1,
+    WEATHER_TYPE_SNOW      = 2,
+    WEATHER_TYPE_STORM     = 3,
+    WEATHER_TYPE_THUNDERS  = 86,
+    WEATHER_TYPE_BLACKRAIN = 90
+}
+
+---@enum EquipmentSlots
+local EquipmentSlots = {
+    EQUIPMENT_SLOT_START     = 0,
+    EQUIPMENT_SLOT_HEAD      = 0,
+    EQUIPMENT_SLOT_NECK      = 1,
+    EQUIPMENT_SLOT_SHOULDERS = 2,
+    EQUIPMENT_SLOT_BODY      = 3,
+    EQUIPMENT_SLOT_CHEST     = 4,
+    EQUIPMENT_SLOT_WAIST     = 5,
+    EQUIPMENT_SLOT_LEGS      = 6,
+    EQUIPMENT_SLOT_FEET      = 7,
+    EQUIPMENT_SLOT_WRISTS    = 8,
+    EQUIPMENT_SLOT_HANDS     = 9,
+    EQUIPMENT_SLOT_FINGER1   = 10,
+    EQUIPMENT_SLOT_FINGER2   = 11,
+    EQUIPMENT_SLOT_TRINKET1  = 12,
+    EQUIPMENT_SLOT_TRINKET2  = 13,
+    EQUIPMENT_SLOT_BACK      = 14,
+    EQUIPMENT_SLOT_MAINHAND  = 15,
+    EQUIPMENT_SLOT_OFFHAND   = 16,
+    EQUIPMENT_SLOT_RANGED    = 17,
+    EQUIPMENT_SLOT_TABARD    = 18,
+    EQUIPMENT_SLOT_END       = 19
+}
+
+---@enum InventorySlots
+local InventorySlots = {
+    INVENTORY_SLOT_BAG_START = 19,
+    INVENTORY_SLOT_BAG_END   = 23
+}
+
+
+---@enum AccountTypes
+local AccountTypes = {
+    SEC_PLAYER        = 0,
+    SEC_MODERATOR     = 1,
+    SEC_GAMEMASTER    = 2,
+    SEC_ADMINISTRATOR = 3,
+    SEC_CONSOLE       = 4
+}
+
+
+---@enum QuestStatus
+local QuestStatus = {
+    QUEST_STATUS_NONE       = 0,
+    QUEST_STATUS_COMPLETE   = 1,
+    --QUEST_STATUS_UNAVAILABLE    = 2,
+    QUEST_STATUS_INCOMPLETE = 3,
+    --QUEST_STATUS_AVAILABLE      = 4,
+    QUEST_STATUS_FAILED     = 5,
+    QUEST_STATUS_REWARDED   = 6,
+}
+
+---@enum ReputationRank
+local ReputationRank = {
+    REP_HATED      = 0,
+    REP_HOSTILE    = 1,
+    REP_UNFRIENDLY = 2,
+    REP_NEUTRAL    = 3,
+    REP_FRIENDLY   = 4,
+    REP_HONORED    = 5,
+    REP_REVERED    = 6,
+    REP_EXALTED    = 7
+}
+
+---@enum ChatMsg
+local ChatMsg = {
+    CHAT_MSG_ADDON                 = 0xFF,  -- -1
+    CHAT_MSG_SYSTEM                = 0x00,
+    CHAT_MSG_SAY                   = 0x01,
+    CHAT_MSG_PARTY                 = 0x02,
+    CHAT_MSG_RAID                  = 0x03,
+    CHAT_MSG_GUILD                 = 0x04,
+    CHAT_MSG_OFFICER               = 0x05,
+    CHAT_MSG_YELL                  = 0x06,
+    CHAT_MSG_WHISPER               = 0x07,
+    CHAT_MSG_WHISPER_FOREIGN       = 0x08,
+    CHAT_MSG_WHISPER_INFORM        = 0x09,
+    CHAT_MSG_EMOTE                 = 0x0A,
+    CHAT_MSG_TEXT_EMOTE            = 0x0B,
+    CHAT_MSG_MONSTER_SAY           = 0x0C,
+    CHAT_MSG_MONSTER_PARTY         = 0x0D,
+    CHAT_MSG_MONSTER_YELL          = 0x0E,
+    CHAT_MSG_MONSTER_WHISPER       = 0x0F,
+    CHAT_MSG_MONSTER_EMOTE         = 0x10,
+    CHAT_MSG_CHANNEL               = 0x11,
+    CHAT_MSG_CHANNEL_JOIN          = 0x12,
+    CHAT_MSG_CHANNEL_LEAVE         = 0x13,
+    CHAT_MSG_CHANNEL_LIST          = 0x14,
+    CHAT_MSG_CHANNEL_NOTICE        = 0x15,
+    CHAT_MSG_CHANNEL_NOTICE_USER   = 0x16,
+    CHAT_MSG_AFK                   = 0x17,
+    CHAT_MSG_DND                   = 0x18,
+    CHAT_MSG_IGNORED               = 0x19,
+    CHAT_MSG_SKILL                 = 0x1A,
+    CHAT_MSG_LOOT                  = 0x1B,
+    CHAT_MSG_MONEY                 = 0x1C,
+    CHAT_MSG_OPENING               = 0x1D,
+    CHAT_MSG_TRADESKILLS           = 0x1E,
+    CHAT_MSG_PET_INFO              = 0x1F,
+    CHAT_MSG_COMBAT_MISC_INFO      = 0x20,
+    CHAT_MSG_COMBAT_XP_GAIN        = 0x21,
+    CHAT_MSG_COMBAT_HONOR_GAIN     = 0x22,
+    CHAT_MSG_COMBAT_FACTION_CHANGE = 0x23,
+    CHAT_MSG_BG_SYSTEM_NEUTRAL     = 0x24,
+    CHAT_MSG_BG_SYSTEM_ALLIANCE    = 0x25,
+    CHAT_MSG_BG_SYSTEM_HORDE       = 0x26,
+    CHAT_MSG_RAID_LEADER           = 0x27,
+    CHAT_MSG_RAID_WARNING          = 0x28,
+    CHAT_MSG_RAID_BOSS_EMOTE       = 0x29,
+    CHAT_MSG_RAID_BOSS_WHISPER     = 0x2A,
+    CHAT_MSG_FILTERED              = 0x2B,
+    CHAT_MSG_BATTLEGROUND          = 0x2C,
+    CHAT_MSG_BATTLEGROUND_LEADER   = 0x2D,
+    CHAT_MSG_RESTRICTED            = 0x2E,
+    CHAT_MSG_BATTLENET             = 0x2F,
+    CHAT_MSG_ACHIEVEMENT           = 0x30,
+    CHAT_MSG_GUILD_ACHIEVEMENT     = 0x31,
+    CHAT_MSG_ARENA_POINTS          = 0x32,
+    CHAT_MSG_PARTY_LEADER          = 0x33
 }
