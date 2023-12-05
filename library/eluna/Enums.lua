@@ -878,18 +878,18 @@ local Power = {
 
 ---@enum Races
 local Races = {
-    RACE_NONE          = 0,       -- SKIP
-    RACE_HUMAN         = 1,       -- TITLE Human
-    RACE_ORC           = 2,       -- TITLE Orc
-    RACE_DWARF         = 3,       -- TITLE Dwarf
-    RACE_NIGHTELF      = 4,       -- TITLE Night Elf
-    RACE_UNDEAD_PLAYER = 5,       -- TITLE Undead
-    RACE_TAUREN        = 6,       -- TITLE Tauren
-    RACE_GNOME         = 7,       -- TITLE Gnome
-    RACE_TROLL         = 8,       -- TITLE Troll
+    RACE_NONE          = 0,  -- SKIP
+    RACE_HUMAN         = 1,  -- TITLE Human
+    RACE_ORC           = 2,  -- TITLE Orc
+    RACE_DWARF         = 3,  -- TITLE Dwarf
+    RACE_NIGHTELF      = 4,  -- TITLE Night Elf
+    RACE_UNDEAD_PLAYER = 5,  -- TITLE Undead
+    RACE_TAUREN        = 6,  -- TITLE Tauren
+    RACE_GNOME         = 7,  -- TITLE Gnome
+    RACE_TROLL         = 8,  -- TITLE Troll
     --RACE_GOBLIN             = 9,
-    RACE_BLOODELF      = 10,      -- TITLE Blood Elf
-    RACE_DRAENEI       = 11       --, TITLE Draenei
+    RACE_BLOODELF      = 10, -- TITLE Blood Elf
+    RACE_DRAENEI       = 11  --, TITLE Draenei
     --RACE_FEL_ORC            = 12,
     --RACE_NAGA               = 13,
     --RACE_BROKEN             = 14,
@@ -913,4 +913,17 @@ local UnitMoveType = {
     MOVE_FLIGHT      = 6,
     MOVE_FLIGHT_BACK = 7,
     MOVE_PITCH_RATE  = 8
+}
+
+---@enum TypeMask
+local TypeMask = {
+    TYPEMASK_OBJECT         = 0x0001,
+    TYPEMASK_ITEM           = 0x0002,
+    TYPEMASK_CONTAINER      = 0x0006,                       -- TYPEMASK_ITEM | 0x0004
+    TYPEMASK_UNIT           = 0x0008,                       -- creature
+    TYPEMASK_PLAYER         = 0x0010,
+    TYPEMASK_GAMEOBJECT     = 0x0020,
+    TYPEMASK_DYNAMICOBJECT  = 0x0040,
+    TYPEMASK_CORPSE         = 0x0080,
+    TYPEMASK_SEER           = 0x0058
 }
