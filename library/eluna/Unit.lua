@@ -66,9 +66,9 @@ function Unit:AttackStop() end
 function Unit:CastCustomSpell(target, spell, triggered, bp0, bp1, bp2, castItem, originalCaster) end
 
 ---Makes the Unit cast the spell on the target.
----@param target Unit Can be self or another unit. 
----@param spell number Entry of a spell. 
----@param triggered boolean If true the spell is instant and has no cost. 
+---@param target Unit Can be self or another unit.
+---@param spell number Entry of a spell.
+---@param triggered boolean If true the spell is instant and has no cost.
 function Unit:CastSpell(target, spell, triggered) end
 
 ---Makes the Unit cast the spell to the given coordinates, used for area effect spells.
@@ -83,7 +83,7 @@ function Unit:CastSpellAoF(x, y, z, spell) end
 ---@param y number
 ---@param z number
 ---@param spell number
----@param triggered boolean If true the spell is instant and has no cost. 
+---@param triggered boolean If true the spell is instant and has no cost.
 function Unit:CastSpellAoF(x, y, z, spell, triggered) end
 
 ---Clears the Unit's combat
@@ -606,7 +606,6 @@ function Unit:NearTeleport(x, y, z, o) end
 ---@param emoteId number
 function Unit:PerformEmote(emoteId) end
 
-
 ---Removes all Aura's from the Unit.\
 ---`Note: *talents and racials are also auras, use with caution*`
 function Unit:RemoveAllAuras() end
@@ -659,8 +658,8 @@ function Unit:SendUnitWhisper(msg, lang, receiver) end
 function Unit:SendUnitWhisper(msg, lang, receiver, bossWhisper) end
 
 ---The Unit will yell the message
----@param msg string Message for the Unit to yell. 
----@param language number Language for the Unit to speak. 
+---@param msg string Message for the Unit to yell.
+---@param language number Language for the Unit to speak.
 function Unit:SendUnitYell(msg, language) end
 
 ---Confuses the Unit, if 'false' specified, the Unit is no longer confused.
