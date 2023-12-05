@@ -172,6 +172,23 @@ local CreatureEvents = {
     CREATURE_EVENT_ON_REMOVE                    = 37, -- (event, creature)
 }
 
+---@enum CreatureType
+local CreatureType = {
+    CREATURE_TYPE_BEAST          = 1,
+    CREATURE_TYPE_DRAGONKIN      = 2,
+    CREATURE_TYPE_DEMON          = 3,
+    CREATURE_TYPE_ELEMENTAL      = 4,
+    CREATURE_TYPE_GIANT          = 5,
+    CREATURE_TYPE_UNDEAD         = 6,
+    CREATURE_TYPE_HUMANOID       = 7,
+    CREATURE_TYPE_CRITTER        = 8,
+    CREATURE_TYPE_MECHANICAL     = 9,
+    CREATURE_TYPE_NOT_SPECIFIED  = 10,
+    CREATURE_TYPE_TOTEM          = 11,
+    CREATURE_TYPE_NON_COMBAT_PET = 12, --This and below is TBC+
+    CREATURE_TYPE_GAS_CLOUD      = 13
+}
+
 ---@enum GossipEvents
 local GossipEvents =
 {
@@ -757,4 +774,143 @@ local QuestFlags = {
     QUEST_FLAGS_DISPLAY_ITEM_IN_TRACKER = 0x00020000, --- Displays usable item in quest tracker
     QUEST_FLAGS_OBJ_TEXT                = 0x00040000, --- use Objective text as Complete text
     QUEST_FLAGS_AUTO_ACCEPT             = 0x00080000
+}
+
+
+---@enum UnitState
+local UnitState = {
+    UNIT_STATE_DIED                  = 0x00000001, --- player has fake death aura
+    UNIT_STATE_MELEE_ATTACKING       = 0x00000002, --- player is melee attacking someone
+    UNIT_STATE_CHARMED               = 0x00000004, --- having any kind of charm aura on self
+    UNIT_STATE_STUNNED               = 0x00000008,
+    UNIT_STATE_ROAMING               = 0x00000010,
+    UNIT_STATE_CHASE                 = 0x00000020,
+    UNIT_STATE_FOCUSING              = 0x00000040,
+    UNIT_STATE_FLEEING               = 0x00000080,
+    UNIT_STATE_IN_FLIGHT             = 0x00000100, --- player is in flight mode
+    UNIT_STATE_FOLLOW                = 0x00000200,
+    UNIT_STATE_ROOT                  = 0x00000400,
+    UNIT_STATE_CONFUSED              = 0x00000800,
+    UNIT_STATE_DISTRACTED            = 0x00001000,
+    UNIT_STATE_ISOLATED              = 0x00002000, --- area auras do not affect other players
+    UNIT_STATE_ATTACK_PLAYER         = 0x00004000,
+    UNIT_STATE_CASTING               = 0x00008000,
+    UNIT_STATE_POSSESSED             = 0x00010000, --- being possessed by another unit
+    UNIT_STATE_CHARGING              = 0x00020000,
+    UNIT_STATE_JUMPING               = 0x00040000,
+    UNIT_STATE_FOLLOW_FORMATION      = 0x00080000,
+    UNIT_STATE_MOVE                  = 0x00100000,
+    UNIT_STATE_ROTATING              = 0x00200000,
+    UNIT_STATE_EVADE                 = 0x00400000,
+    UNIT_STATE_ROAMING_MOVE          = 0x00800000,
+    UNIT_STATE_CONFUSED_MOVE         = 0x01000000,
+    UNIT_STATE_FLEEING_MOVE          = 0x02000000,
+    UNIT_STATE_CHASE_MOVE            = 0x04000000,
+    UNIT_STATE_FOLLOW_MOVE           = 0x08000000,
+    UNIT_STATE_IGNORE_PATHFINDING    = 0x10000000, --- do not use pathfinding in any MovementGenerator
+    UNIT_STATE_FOLLOW_FORMATION_MOVE = 0x20000000,
+
+    UNIT_STATE_ALL_STATE_SUPPORTED   = 0x3FF7FFFF,
+
+    UNIT_STATE_UNATTACKABLE          = 0x0000010,
+    UNIT_STATE_MOVING                = 0x2F800000,
+    UNIT_STATE_CONTROLLED            = 0x888,
+    UNIT_STATE_LOST_CONTROL          = 0x70888,
+    UNIT_STATE_CANNOT_AUTOATTACK     = 0x28888,
+    UNIT_STATE_SIGHTLESS             = 0x470888,
+    UNIT_STATE_CANNOT_TURN           = 0x2708C8,
+    UNIT_STATE_NOT_MOVE              = 0x1409,
+
+    UNIT_STATE_ALL_ERASABLE          = 0x2FF7FFFF,
+    UNIT_STATE_ALL_STATE             = 0xffffffff
+}
+
+---@enum SpellSchools
+local SpellSchools = {
+    SPELL_SCHOOL_NORMAL = 0,
+    SPELL_SCHOOL_HOLY   = 1,
+    SPELL_SCHOOL_FIRE   = 2,
+    SPELL_SCHOOL_NATURE = 3,
+    SPELL_SCHOOL_FROST  = 4,
+    SPELL_SCHOOL_SHADOW = 5,
+    SPELL_SCHOOL_ARCANE = 6,
+    MAX_SPELL_SCHOOL    = 7
+}
+
+
+---@enum Classes
+local Classes = {
+    CLASS_NONE         = 0, --- SKIP
+    CLASS_WARRIOR      = 1, --- TITLE Warrior
+    CLASS_PALADIN      = 2, --- TITLE Paladin
+    CLASS_HUNTER       = 3, --- TITLE Hunter
+    CLASS_ROGUE        = 4, --- TITLE Rogue
+    CLASS_PRIEST       = 5, --- TITLE Priest
+    CLASS_DEATH_KNIGHT = 6, --- TITLE Death Knight
+    CLASS_SHAMAN       = 7, --- TITLE Shaman
+    CLASS_MAGE         = 8, --- TITLE Mage
+    CLASS_WARLOCK      = 9, --- TITLE Warlock
+    ---CLASS_UNK           = 10,
+    CLASS_DRUID        = 11 --- TITLE Druid
+}
+
+---@enum CurrentSpellTypes
+local CurrentSpellTypes = {
+    CURRENT_MELEE_SPELL      = 0,
+    CURRENT_GENERIC_SPELL    = 1,
+    CURRENT_CHANNELED_SPELL  = 2,
+    CURRENT_AUTOREPEAT_SPELL = 3
+}
+
+---@enum Power
+local Power = {
+    POWER_MANA        = 0,
+    POWER_RAGE        = 1,
+    POWER_FOCUS       = 2,
+    POWER_ENERGY      = 3,
+    POWER_HAPPINESS   = 4,
+    POWER_RUNE        = 5,
+    POWER_RUNIC_POWER = 6,
+    MAX_POWERS        = 7,
+    POWER_ALL         = 127,       --- default for class?
+    POWER_HEALTH      = 0xFFFFFFFE --- (-2 as signed value)
+}
+
+---@enum Races
+local Races = {
+    RACE_NONE          = 0,       -- SKIP
+    RACE_HUMAN         = 1,       -- TITLE Human
+    RACE_ORC           = 2,       -- TITLE Orc
+    RACE_DWARF         = 3,       -- TITLE Dwarf
+    RACE_NIGHTELF      = 4,       -- TITLE Night Elf
+    RACE_UNDEAD_PLAYER = 5,       -- TITLE Undead
+    RACE_TAUREN        = 6,       -- TITLE Tauren
+    RACE_GNOME         = 7,       -- TITLE Gnome
+    RACE_TROLL         = 8,       -- TITLE Troll
+    --RACE_GOBLIN             = 9,
+    RACE_BLOODELF      = 10,      -- TITLE Blood Elf
+    RACE_DRAENEI       = 11       --, TITLE Draenei
+    --RACE_FEL_ORC            = 12,
+    --RACE_NAGA               = 13,
+    --RACE_BROKEN             = 14,
+    --RACE_SKELETON           = 15,
+    --RACE_VRYKUL             = 16,
+    --RACE_TUSKARR            = 17,
+    --RACE_FOREST_TROLL       = 18,
+    --RACE_TAUNKA             = 19,
+    --RACE_NORTHREND_SKELETON = 20,
+    --RACE_ICE_TROLL          = 21
+}
+
+---@enum UnitMoveType
+local UnitMoveType = {
+    MOVE_WALK        = 0,
+    MOVE_RUN         = 1,
+    MOVE_RUN_BACK    = 2,
+    MOVE_SWIM        = 3,
+    MOVE_SWIM_BACK   = 4,
+    MOVE_TURN_RATE   = 5,
+    MOVE_FLIGHT      = 6,
+    MOVE_FLIGHT_BACK = 7,
+    MOVE_PITCH_RATE  = 8
 }
