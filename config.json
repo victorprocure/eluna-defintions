@@ -1,0 +1,12 @@
+{
+    // Name of the addon
+    "name": "Eluna Definitions",
+
+    // Lua string patterns to look for in a workspace.
+    // If detected, this addon will be recommended to enable
+    "words": [ "eluna%" ],
+
+    // Lua string patterns to look for in filenames.
+    // If detected, this addon will be recommended to enable
+    "files": ["eluna.lua"]
+}
